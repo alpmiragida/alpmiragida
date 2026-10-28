@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Alpmira Gıda | Boutique Factory</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: 
+         Great Vibes: Retrica tarzı şekilli butik logo fontu
+         Cormorant Garamond: Cacao & Me tarzı asil başlık fontu
+         Montserrat: İnce (Light 300) gövde ve alt başlık fontu
+    -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animasyon Kütüphanesi -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Lucide İkonlar -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            /* Tüm metinleri görseldeki gibi ince (light) yapar */
+            overflow-x: hidden;
+        }
+
+        /* Yeni Font Sınıfları */
+        .font-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Performans (120 FPS) Donanım Hızlandırmalı Parallax Sınıfları */
+        .parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+            background-color: #111;
+            z-index: 0;
+            transform: translateZ(0);
+        }
+
+        .parallax-img {
+            position: absolute;
+            top: -40%;
+            left: 0;
+            width: 100%;
+            height: 180%;
+            object-fit: cover;
+            will-change: transform;
+            z-index: -1;
+            pointer-events: none;
+            backface-visibility: hidden;
+        }
+
+        /* Menü Buzlu Cam Efekti */
+        #main-header {
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.5s ease, padding 0.5s ease, border-bottom-color 0.5s ease, backdrop-filter 0.5s ease;
+        }
+
+        #main-header.scrolled {
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================== -->
+    <!-- ÜST MENÜ -->
+    <!-- ========================================== -->
+    <header id="main-header"
+        class="fixed top-0 w-full z-50 py-10 px-6 md:px-12 flex justify-between items-center text-white">
+        <nav class="space-x-10 text-[11px] tracking-[0.25em] font-montserrat uppercase">
+            <a href="#" class="hover:text-gray-300 transition duration-300">Ana Sayfa</a>
+            <button onclick="openModal()"
+                class="hover:text-gray-300 transition duration-300 uppercase tracking-[0.2em]">Katalog</button>
+            <a href="#iletisim" class="hover:text-gray-300 transition duration-300">İletişim</a>
+        </nav>
+        <div></div>
+    </header>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 1: HERO (Şekilli Logo Fontu ile) -->
+    <!-- ========================================== -->
+    <section class="parallax-wrapper h-[130vh]">
+        <img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg"
+            class="parallax-img" alt="Hero Background">
+        <div class="absolute inset-0 bg-black/50 z-[-1]"></div>
+
+        <div class="absolute top-0 w-full h-screen flex flex-col items-center justify-center text-white z-10">
+            <span class="text-[10px] tracking-[0.4em] font-montserrat mb-4 uppercase text-gray-300" data-aos="fade-in">
+                - BOUTIQUE FACTORY -
+            </span>
+
+            <!-- Retrica tarzı şekilli (cursive) ana başlık -->
+            <h1 class="text-8xl md:text-[11rem] font-vibes font-normal text-white mb-2" data-aos="fade-up"
+                data-aos-delay="100" style="line-height: 1;">
+                Alpmira
+            </h1>
+
+            <!-- Zarif alt başlık -->
+            <h2 class="text-base md:text-2xl tracking-[0.4em] font-montserrat font-medium uppercase text-white mb-16 pl-2"
+                data-aos="fade-up" data-aos-delay="200">
+                GIDA
+            </h2>
+
+            <a href="tel:+905427310808"
+                class="border border-white/40 px-12 py-4 text-[11px] tracking-[0.2em] font-montserrat uppercase hover:bg-white hover:text-gray-900 transition duration-500"
+                data-aos="fade-up" data-aos-delay="300">
+                BİZE ULAŞIN
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 2: HAKKIMIZDA (Görseldeki font ve çizgilerle) -->
+    <!-- ========================================== -->
+    <section class="py-32 px-6 md:px-20 bg-[#faf9f6] text-[#2d2a26] relative z-20 shadow-2xl">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-20">
+
+            <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg"
+                    class="w-full h-[650px] object-cover shadow-lg" alt="Üretim Tesisimiz">
+            </div>
+
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left" data-aos-duration="1000">
+                <!-- Cacao & Me tarzı asil başlık -->
+                <h2 class="text-5xl md:text-6xl font-cormorant font-normal mb-4 text-[#5c564f]">Hakkımızda</h2>
+
+                <!-- Geniş aralıklı ince alt başlık -->
+                <p class="text-[11px] tracking-[0.25em] font-montserrat uppercase text-[#888] mb-6">
+                    YÜKSEK STANDARTLI ÜRETİM
+                </p>
+
+                <!-- Görseldeki o zarif ince ayırıcı çizgi -->
+                <div class="w-20 border-b border-gray-300 mx-auto md:mx-0 mb-10"></div>
+
+                <!-- Görseldeki gibi incecik, gri, ferah gövde metni -->
+                <p class="font-montserrat font-light text-[15px] leading-loose text-[#666] mb-8">
+                    Alpmira Gıda olarak 2015 yılından bu yana Samsun'daki tesisimizde lolipop şeker ve marshmallow
+                    üretmekteyiz. Aylık 360.000 adetlik üretim kapasitemiz ve ağırlıklı olarak kadın istihdamını
+                    destekleyen yapımızla yüksek standartlarda üretim sunmaktayız.
+                </p>
+                <p class="font-montserrat font-light text-[15px] leading-loose text-[#666]">
+                    Sektördeki tecrübemizi, yenilikçi üretim teknolojileriyle birleştirerek iş ortaklarımıza en
+                    güvenilir ve en kaliteli şekerleme ürünlerini tedarik ediyoruz.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 3: PARALLAX GEÇİŞ EKRANI -->
+    <!-- ========================================== -->
+    <section id="parallax-ozel" class="parallax-wrapper h-[60vh] bg-cover bg-center"
+        style="background-image: url('https://images.pexels.com/photos/867470/pexels-photo-867470.jpeg');">
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 4: TOPTAN ÜRETİM (Katalog) -->
+    <!-- ========================================== -->
+    <section class="py-32 px-6 md:px-20 bg-[#faf9f6] text-[#2d2a26] relative z-20 shadow-2xl">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-20">
+
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-5xl md:text-6xl font-cormorant font-normal mb-4 text-[#5c564f]">Toptan Üretim</h2>
+                <p class="text-[11px] tracking-[0.25em] font-montserrat uppercase text-[#888] mb-6">
+                    MARSHMALLOW & LOLİPOP
+                </p>
+
+                <div class="w-20 border-b border-gray-300 mx-auto md:mx-0 mb-10"></div>
+
+                <p class="font-montserrat font-light text-[15px] leading-loose text-[#666] mb-12">
+                    Büyük mağazalar, kurumsal işletmeler ve zincir marketler için uluslararası standartlara sahip toptan
+                    ürün tedariği sağlıyoruz. Ürün yelpazemizi detaylıca incelemek için kataloğumuza göz atabilirsiniz.
+                </p>
+                <button onclick="openModal()"
+                    class="text-[11px] tracking-[0.25em] font-montserrat uppercase text-[#888] hover:text-[#2d2a26] transition duration-300 border border-[#ddd] px-8 py-3">
+                    KATALOĞU İNCELEYİN
+                </button>
+            </div>
+
+            <div class="w-full md:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-up" data-aos-duration="1000">
+                <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg"
+                    class="w-full aspect-square object-cover shadow-sm hover:scale-105 transition duration-500"
+                    alt="Ürün 1">
+                <img src="https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg"
+                    class="w-full aspect-square object-cover shadow-sm hover:scale-105 transition duration-500"
+                    alt="Ürün 2">
+                <img src="https://images.pexels.com/photos/1998633/pexels-photo-1998633.jpeg"
+                    class="w-full aspect-square object-cover shadow-sm hover:scale-105 transition duration-500"
+                    alt="Ürün 3">
+                <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg"
+                    class="w-full aspect-square object-cover shadow-sm hover:scale-105 transition duration-500"
+                    alt="Ürün 4">
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 5: ALINTI SÖZ -->
+    <!-- ========================================== -->
+    <section class="parallax-wrapper h-[80vh] flex items-center justify-center text-center text-white">
+
+        <img src="https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg" class="parallax-img"
+            alt="Quote Background">
+        <div class="absolute inset-0 bg-[#2b2b2b]/80 z-[-1]"></div>
+
+        <div class="relative z-10 max-w-4xl px-6" data-aos="zoom-in" data-aos-duration="1000">
+            <p class="text-4xl md:text-5xl font-cormorant italic leading-[1.6]">
+                "İşletmenizin hikayesini tatlandıran, kaliteli ve güvenilir toptan üretim ortağınız."
+            </p>
+            <p class="text-[11px] tracking-[0.3em] font-montserrat uppercase mt-12 text-gray-300">
+                - ALPMİRA GIDA -
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 6: KALİTE BELGELERİ -->
+    <!-- ========================================== -->
+    <section class="py-32 px-6 md:px-20 bg-[#faf9f6] text-[#2d2a26] relative z-20 shadow-2xl">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-20">
+
+            <div class="w-full md:w-1/2 flex gap-6" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://images.pexels.com/photos/205961/pexels-photo-205961.jpeg"
+                    class="w-1/2 object-cover h-[550px] shadow-lg" alt="Alpmira Kalite">
+                <img src="https://images.pexels.com/photos/1120464/pexels-photo-1120464.jpeg"
+                    class="w-1/2 object-cover h-[550px] shadow-lg mt-20" alt="Sertifikasyon">
+            </div>
+
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left" data-aos-duration="1000">
+                <h2 class="text-5xl md:text-6xl font-cormorant font-normal mb-4 text-[#5c564f]">Kalite Standartları</h2>
+                <p class="text-[11px] tracking-[0.25em] font-montserrat uppercase text-[#888] mb-6">
+                    ULUSLARARASI SERTİFİKALAR
+                </p>
+
+                <div class="w-20 border-b border-gray-300 mx-auto md:mx-0 mb-10"></div>
+
+                <p class="font-montserrat font-light text-[15px] leading-loose text-[#666] mb-6">
+                    Üretim süreçlerimiz uluslararası gıda güvenliği ve kalite normlarına tam uyumlu şekilde, hijyenik ve
+                    kontrollü ortamlarda yürütülmektedir.
+                </p>
+                <p class="font-montserrat text-[14px] leading-[2.2] text-[#555] font-normal">
+                    ISO 9001:2015 <br> ISO 22000:2018 <br> ISO 14001:2015 <br> ISO 45001:2018 <br> ISO 10002:2018 <br>
+                    HELAL Sertifikası
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- BÖLÜM 7: FOOTER -->
+    <!-- ========================================== -->
+    <footer id="iletisim" class="bg-[#242221] text-white py-24 px-6 md:px-12 relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+
+            <div class="flex flex-col text-center md:text-left" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-delay="100">
+                <h3 class="text-5xl font-vibes font-normal mb-6 text-[#eaeaea]">Alpmira</h3>
+                <p class="font-montserrat font-light text-sm text-[#999] leading-loose md:pr-10">
+                    Alpmira Gıda Samsun - Yüksek standartlarda üretim kapasitesiyle işletmenizin hikayesini tatlandıran,
+                    kaliteli ve güvenilir toptan üretim ortağınız.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="w-full max-w-[300px]">
+                    <h4
+                        class="text-[11px] tracking-[0.25em] font-montserrat uppercase mb-8 text-[#aaa] text-center md:text-left">
+                        BİZE ULAŞIN</h4>
+                    <ul class="space-y-6 font-montserrat font-light text-sm text-[#999]">
+                        <li>
+                            <a href="https://maps.app.goo.gl/6i5Q3Qg6hH7Bnvri7?g_st=ic" target="_blank"
+                                class="flex items-start hover:text-white transition duration-300">
+                                <i data-lucide="map-pin" class="w-5 h-5 mr-5 shrink-0 text-[#888]"></i>
+                                <span class="leading-relaxed">Hasköy Mah. Yörükler Sokak No: 1/4<br>Canik /
+                                    Samsun</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+905427310808"
+                                class="flex items-center justify-center md:justify-start hover:text-white transition duration-300">
+                                <i data-lucide="phone" class="w-5 h-5 mr-5 shrink-0 text-[#888]"></i>
+                                +90 (542) 731 08 08
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:alpmiragida@gmail.com"
+                                class="flex items-center justify-center md:justify-start hover:text-white transition duration-300">
+                                <i data-lucide="mail" class="w-5 h-5 mr-5 shrink-0 text-[#888]"></i>
+                                alpmiragida@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col text-center md:text-right h-full" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-delay="300">
+                <h4 class="text-[11px] tracking-[0.25em] font-montserrat uppercase mb-8 text-[#aaa]">TAKİP EDİN</h4>
+                <div class="flex justify-center md:justify-end space-x-6">
+                    <a href="https://www.facebook.com/people/Alpmira-GIDA/100064856043432/" target="_blank"
+                        class="text-[#888] hover:text-white hover:scale-110 transition duration-300">
+                        <svg viewBox="0 0 320 512" fill="currentColor" class="w-5 h-5">
+                            <path
+                                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/alpmira_gida" target="_blank"
+                        class="text-[#888] hover:text-white hover:scale-110 transition duration-300">
+                        <svg viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5">
+                            <path
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center mt-20 text-[10px] tracking-[0.2em] font-montserrat text-[#777] uppercase"
+            data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
+            &copy; 2026 Alpmira Gıda. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!-- SABİT BUTON -->
+    <!-- ========================================== -->
+    <a href="https://wa.me/905427310808?text=Merhaba,%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum."
+        target="_blank"
+        class="fixed bottom-8 right-8 bg-[#242221] border border-[#4a4846] text-white px-10 py-4 font-montserrat text-[11px] tracking-[0.1em] hover:bg-white hover:text-black transition-colors duration-300 z-50 shadow-2xl">
+        BİZE YAZIN
+    </a>
+
+
+    <!-- ========================================== -->
+    <!-- KATALOG MODAL EKRANI -->
+    <!-- ========================================== -->
+    <div id="catalogModal"
+        class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-[#242221] border border-[#4a4846] p-16 max-w-lg w-full mx-4 text-center relative shadow-2xl">
+            <button onclick="closeModal()"
+                class="absolute top-5 right-5 text-[#888] hover:text-white transition duration-300">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="font-cormorant text-4xl text-white mb-6">Katalog Hazırlanıyor</h3>
+            <p class="font-montserrat font-light text-[15px] text-[#999] leading-relaxed mb-10">
+                Ürün kataloğumuz toptan satış ağımız için şu anda güncellenmektedir. Fiyat listesi ve detaylar için
+                lütfen bizimle WhatsApp üzerinden iletişime geçin.
+            </p>
+            <a href="https://wa.me/905427310808?text=Merhaba,%20güncel%20ürün%20kataloğunuzu%20alabilir%20miyim?"
+                target="_blank"
+                class="inline-block border border-white/50 text-white px-10 py-4 font-montserrat text-[11px] tracking-[0.2em] uppercase hover:bg-white hover:text-black transition duration-300">
+                WhatsApp'tan İsteyin
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        AOS.init({once: true, offset: 50});
+        lucide.createIcons();
+
+        // ÜST MENÜ DIŞ BAR EFEKTİ
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 120 FPS PÜRÜZSÜZ (YAĞ GİBİ) PARALLAX MOTORU
+            const parallaxElements = document.querySelectorAll('.parallax-img');
+            const ozelWrapper = document.getElementById('parallax-ozel');
+            let ticking = false;
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const windowHeight = window.innerHeight;
+
+                        // Resimli Parallax Alanları (Bölüm 1, Bölüm 5 vb.)
+                        parallaxElements.forEach(el => {
+                            const parent = el.closest('.parallax-wrapper');
+                            const rect = parent.getBoundingClientRect();
+
+                            if (rect.top < windowHeight && rect.bottom > 0) {
+                                const yCenter = rect.top + (rect.height / 2);
+                                const viewportCenter = windowHeight / 2;
+                                const distance = yCenter - viewportCenter;
+
+                                let offset = -distance * 0.30;
+                                el.style.transform = `translate3d(0, ${offset}px, 0)`;
+                            }
+                        });
+
+                        // Bölüm 3 Arkaplan Parallax Alanı
+                        if (ozelWrapper) {
+                            const rect = ozelWrapper.getBoundingClientRect();
+                            if (rect.top < windowHeight && rect.bottom > 0) {
+                                const yCenter = rect.top + (rect.height / 2);
+                                const viewportCenter = windowHeight / 2;
+                                const distance = yCenter - viewportCenter;
+
+                                let offset = -distance * 0.30;
+                                ozelWrapper.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+                            }
+                        }
+
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+        // MODAL FONKSİYONLARI
+        const modal = document.getElementById('catalogModal');
+        function openModal() {
+            window.open('katalog.pdf', '_blank');
+        }
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {closeModal();}
+        });
+    </script>
+</body>
+
+</html>

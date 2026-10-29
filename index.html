@@ -37,15 +37,20 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
         body {
             background-color: #1a1a1a;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
-            /* Tüm metinleri görseldeki gibi ince (light) yapar */
-            overflow-x: hidden;
         }
-
+        section {
+            overflow-x: clip;
+        }
         /* Yeni Font Sınıfları */
         .font-vibes {
             font-family: 'Great Vibes', cursive;
